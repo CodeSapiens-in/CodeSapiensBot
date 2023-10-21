@@ -21,7 +21,12 @@ class MyClient(discord.Client):
             return
 
         if message.content.startswith('test'):
-            await message.reply('Test success', mention_author=True)
+            await message.reply('Test success')
+            # response=await view.wait()
+            # print(response.values)
+            # await message.reply('Test success', mention_author=True)
+
+
 
 
 intents = discord.Intents.default()
@@ -33,3 +38,5 @@ load_dotenv()
 BOT_TOKEN=os.getenv('BOT_TOKEN')
 client = MyClient(intents=intents)
 client.run(BOT_TOKEN)
+
+
