@@ -44,8 +44,9 @@ async def register(interaction: discord.Interaction,department: str,passout_year
    # Write code to update google spreadsheets
    try:
     print(department,str(passout_year),college)
+    await interaction.response.defer(ephemeral=True)
     await sheets.add_user(interaction.user.name,passout_year,department,college)
-    await interaction.response.send_message(f'Thanks for Registering',ephemeral=True)
+    await interaction.followup.send(f'Thanks for Registering',ephemeral=True)
    except Exception as e: print(e)
 
 
